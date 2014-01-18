@@ -79,3 +79,6 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'set-goal-column 'disabled nil)
+
+;; マジックコメントの自動挿入を無効化
+(setq ruby-insert-encoding-magic-comment nil)
