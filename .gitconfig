@@ -1,0 +1,11 @@
+[user]
+	name = jun-harashima
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	lo = log --oneline -n 10
+[core]
+	editor = emacsclient
+	excludesfile = /Users/jun-harashima/.gitignore
