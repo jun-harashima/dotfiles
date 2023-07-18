@@ -1,2 +1,5 @@
-dotfiles
-========
+# dotfiles
+
+```she
+$ make install
+```
