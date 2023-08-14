@@ -62,9 +62,6 @@
 	     (local-set-key "\M-p" 'comint-previous-matching-input-from-input)
 	     ))
 
-;; org-mode で "Validate XHTML 1.0" を表示しない
-(setq org-export-html-validation-link -1)
-
 ;; テーマを設定
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
