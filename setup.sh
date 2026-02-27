@@ -21,7 +21,7 @@ cd "$SCRIPT_DIR"
 # Homebrew のインストール
 ###############################################################################
 
-echo "[1/2] Homebrew の確認..."
+echo "[1/3] Homebrew の確認..."
 if ! command -v brew &> /dev/null; then
     echo "Homebrew をインストールしています..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -38,12 +38,25 @@ fi
 ###############################################################################
 
 echo ""
-echo "[2/2] Homebrew パッケージをインストール..."
+echo "[2/3] Homebrew パッケージをインストール..."
 if [ -f "$SCRIPT_DIR/Brewfile" ]; then
     brew bundle --file="$SCRIPT_DIR/Brewfile"
     echo "✓ パッケージのインストールが完了しました"
 else
     echo "警告: Brewfile が見つかりません"
+fi
+
+###############################################################################
+# macOS システム設定
+###############################################################################
+
+echo ""
+echo "[3/3] macOS システム設定..."
+if [ -f "$SCRIPT_DIR/macos_settings.sh" ]; then
+    bash "$SCRIPT_DIR/macos_settings.sh"
+    echo "✓ macOS システム設定が完了しました"
+else
+    echo "警告: macos_settings.sh が見つかりません"
 fi
 
 ###############################################################################
