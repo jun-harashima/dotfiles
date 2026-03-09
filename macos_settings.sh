@@ -45,6 +45,26 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "<dic
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "<dict><key>enabled</key><true/><key>value</key><dict><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>1048576</integer></array><key>type</key><string>standard</string></dict></dict>"
 
 ###############################################################################
+# ターミナルの設定
+###############################################################################
+
+echo "ターミナルの設定を適用中..."
+
+# Dracula テーマをインストール
+DRACULA_DIR="$(mktemp -d)"
+trap 'rm -rf "$DRACULA_DIR"' EXIT
+git clone https://github.com/dracula/terminal-app.git "$DRACULA_DIR"
+open "$DRACULA_DIR/Dracula.terminal"
+
+echo ""
+echo "Dracula プロファイルを開きました。以下を手動で設定してください："
+echo "  環境設定 → プロファイル → Dracula"
+echo "  1. Dracula をデフォルトに設定"
+echo "  2. テキスト → ボールドフォントを使用：チェックを外す"
+echo "  3. テキスト → フォント：Menlo Regular 10 に変更"
+echo "  4. キーボード → メタキーとして Option キーを使用：チェックを入れる"
+
+###############################################################################
 # 設定の反映
 ###############################################################################
 
