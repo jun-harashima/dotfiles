@@ -4,14 +4,9 @@
 
 ;; リポジトリを拡張
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-;; popwin.el を導入
-(require 'popwin)
-(setq display-buffer-function 'popwin:display-buffer)
-(setq popwin:popup-window-position 'bottom)
 
 ;; モードラインに Git のブランチを表示
 ;; http://d.hatena.ne.jp/syohex/20130201/1359731697 から拝借
@@ -61,6 +56,12 @@
 	  '(lambda ()
 	     (local-set-key "\M-p" 'comint-previous-matching-input-from-input)
 	     ))
+
+;; dracula テーマを適用
+(unless (package-installed-p 'dracula-theme)
+  (package-refresh-contents)
+  (package-install 'dracula-theme))
+(load-theme 'dracula t)
 
 ;; テーマを設定
 (custom-set-variables
